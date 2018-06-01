@@ -8,12 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		DE41A8C720C084A50040D61E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8C620C084A50040D61E /* AppDelegate.swift */; };
-		DE41A8C920C084A50040D61E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8C820C084A50040D61E /* ViewController.swift */; };
-		DE41A8CC20C084A50040D61E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE41A8CA20C084A50040D61E /* Main.storyboard */; };
-		DE41A8CF20C084A50040D61E /* MVPTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8CD20C084A50040D61E /* MVPTest.xcdatamodeld */; };
+		DE41A8C920C084A50040D61E /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8C820C084A50040D61E /* UserListViewController.swift */; };
 		DE41A8D120C084A90040D61E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE41A8D020C084A90040D61E /* Assets.xcassets */; };
 		DE41A8D420C084A90040D61E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE41A8D220C084A90040D61E /* LaunchScreen.storyboard */; };
-		DE41A8DF20C084A90040D61E /* MVPTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8DE20C084A90040D61E /* MVPTestTests.swift */; };
+		DE41A8DF20C084A90040D61E /* UserListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8DE20C084A90040D61E /* UserListTests.swift */; };
+		DE41A8EE20C08F040040D61E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8ED20C08F040040D61E /* User.swift */; };
+		DE41A8F020C0911F0040D61E /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8EF20C0911F0040D61E /* APIManager.swift */; };
+		DE41A8F220C094EB0040D61E /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8F120C094EB0040D61E /* UserListPresenter.swift */; };
+		DEE9346D20C0B076006AB1F8 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9346C20C0B076006AB1F8 /* Address.swift */; };
+		DEE9346F20C0B087006AB1F8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9346E20C0B087006AB1F8 /* Location.swift */; };
+		DEE9347120C0B0A5006AB1F8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347020C0B0A5006AB1F8 /* Company.swift */; };
+		DEE9347420C0B0D1006AB1F8 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */; };
+		DEE9347A20C0BF4A006AB1F8 /* UserListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347920C0BF4A006AB1F8 /* UserListService.swift */; };
+		DEE9347D20C0C3DC006AB1F8 /* UserListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */; };
+		DEE9347F20C0C408006AB1F8 /* UserListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */; };
+		DEE9348620C1E0DC006AB1F8 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,15 +38,24 @@
 /* Begin PBXFileReference section */
 		DE41A8C320C084A50040D61E /* MVPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE41A8C620C084A50040D61E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE41A8C820C084A50040D61E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DE41A8CB20C084A50040D61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DE41A8CE20C084A50040D61E /* MVPTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MVPTest.xcdatamodel; sourceTree = "<group>"; };
+		DE41A8C820C084A50040D61E /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		DE41A8D020C084A90040D61E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE41A8D320C084A90040D61E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE41A8D520C084A90040D61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE41A8DA20C084A90040D61E /* MVPTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVPTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE41A8DE20C084A90040D61E /* MVPTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPTestTests.swift; sourceTree = "<group>"; };
+		DE41A8DE20C084A90040D61E /* UserListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTests.swift; sourceTree = "<group>"; };
 		DE41A8E020C084A90040D61E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE41A8ED20C08F040040D61E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DE41A8EF20C0911F0040D61E /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		DE41A8F120C094EB0040D61E /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		DEE9346C20C0B076006AB1F8 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		DEE9346E20C0B087006AB1F8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DEE9347020C0B0A5006AB1F8 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		DEE9347920C0BF4A006AB1F8 /* UserListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListService.swift; sourceTree = "<group>"; };
+		DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewMock.swift; sourceTree = "<group>"; };
+		DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListServiceMock.swift; sourceTree = "<group>"; };
+		DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +97,11 @@
 		DE41A8C520C084A50040D61E /* MVPTest */ = {
 			isa = PBXGroup;
 			children = (
-				DE41A8C620C084A50040D61E /* AppDelegate.swift */,
-				DE41A8C820C084A50040D61E /* ViewController.swift */,
-				DE41A8CA20C084A50040D61E /* Main.storyboard */,
-				DE41A8D020C084A90040D61E /* Assets.xcassets */,
-				DE41A8D220C084A90040D61E /* LaunchScreen.storyboard */,
-				DE41A8D520C084A90040D61E /* Info.plist */,
-				DE41A8CD20C084A50040D61E /* MVPTest.xcdatamodeld */,
+				DEE9346820C0B017006AB1F8 /* Application */,
+				DEE9346B20C0B043006AB1F8 /* Base */,
+				DEE9346A20C0B03C006AB1F8 /* Models */,
+				DEE9346920C0B031006AB1F8 /* UserList */,
+				DEE9347220C0B0BD006AB1F8 /* UserDetails */,
 			);
 			path = MVPTest;
 			sourceTree = "<group>";
@@ -93,10 +109,69 @@
 		DE41A8DD20C084A90040D61E /* MVPTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE41A8DE20C084A90040D61E /* MVPTestTests.swift */,
+				DEE9347B20C0C3C5006AB1F8 /* UserList */,
 				DE41A8E020C084A90040D61E /* Info.plist */,
 			);
 			path = MVPTestTests;
+			sourceTree = "<group>";
+		};
+		DEE9346820C0B017006AB1F8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DE41A8C620C084A50040D61E /* AppDelegate.swift */,
+				DE41A8D020C084A90040D61E /* Assets.xcassets */,
+				DE41A8D220C084A90040D61E /* LaunchScreen.storyboard */,
+				DE41A8D520C084A90040D61E /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DEE9346920C0B031006AB1F8 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */,
+				DE41A8F120C094EB0040D61E /* UserListPresenter.swift */,
+				DE41A8C820C084A50040D61E /* UserListViewController.swift */,
+				DEE9347920C0BF4A006AB1F8 /* UserListService.swift */,
+			);
+			path = UserList;
+			sourceTree = "<group>";
+		};
+		DEE9346A20C0B03C006AB1F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DE41A8ED20C08F040040D61E /* User.swift */,
+				DEE9346C20C0B076006AB1F8 /* Address.swift */,
+				DEE9346E20C0B087006AB1F8 /* Location.swift */,
+				DEE9347020C0B0A5006AB1F8 /* Company.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DEE9346B20C0B043006AB1F8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DE41A8EF20C0911F0040D61E /* APIManager.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DEE9347220C0B0BD006AB1F8 /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */,
+			);
+			path = UserDetails;
+			sourceTree = "<group>";
+		};
+		DEE9347B20C0C3C5006AB1F8 /* UserList */ = {
+			isa = PBXGroup;
+			children = (
+				DE41A8DE20C084A90040D61E /* UserListTests.swift */,
+				DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */,
+				DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */,
+			);
+			path = UserList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,7 +257,6 @@
 			files = (
 				DE41A8D420C084A90040D61E /* LaunchScreen.storyboard in Resources */,
 				DE41A8D120C084A90040D61E /* Assets.xcassets in Resources */,
-				DE41A8CC20C084A50040D61E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,9 +274,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE41A8C920C084A50040D61E /* ViewController.swift in Sources */,
-				DE41A8CF20C084A50040D61E /* MVPTest.xcdatamodeld in Sources */,
+				DEE9346D20C0B076006AB1F8 /* Address.swift in Sources */,
+				DE41A8C920C084A50040D61E /* UserListViewController.swift in Sources */,
+				DEE9347420C0B0D1006AB1F8 /* UserDetailsViewController.swift in Sources */,
+				DEE9347A20C0BF4A006AB1F8 /* UserListService.swift in Sources */,
+				DEE9346F20C0B087006AB1F8 /* Location.swift in Sources */,
+				DE41A8EE20C08F040040D61E /* User.swift in Sources */,
+				DEE9348620C1E0DC006AB1F8 /* UserListModel.swift in Sources */,
+				DEE9347120C0B0A5006AB1F8 /* Company.swift in Sources */,
+				DE41A8F220C094EB0040D61E /* UserListPresenter.swift in Sources */,
 				DE41A8C720C084A50040D61E /* AppDelegate.swift in Sources */,
+				DE41A8F020C0911F0040D61E /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE41A8DF20C084A90040D61E /* MVPTestTests.swift in Sources */,
+				DEE9347F20C0C408006AB1F8 /* UserListServiceMock.swift in Sources */,
+				DE41A8DF20C084A90040D61E /* UserListTests.swift in Sources */,
+				DEE9347D20C0C3DC006AB1F8 /* UserListViewMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DE41A8CA20C084A50040D61E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE41A8CB20C084A50040D61E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DE41A8D220C084A90040D61E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -363,8 +439,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H6LDSZPZ4Q;
-				INFOPLIST_FILE = MVPTest/Info.plist;
+				DEVELOPMENT_TEAM = MR4DETKFYQ;
+				INFOPLIST_FILE = "$(SRCROOT)/MVPTest/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,7 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hghinaglia.MVPTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,8 +458,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = H6LDSZPZ4Q;
-				INFOPLIST_FILE = MVPTest/Info.plist;
+				DEVELOPMENT_TEAM = MR4DETKFYQ;
+				INFOPLIST_FILE = "$(SRCROOT)/MVPTest/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +468,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hghinaglia.MVPTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -467,19 +545,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		DE41A8CD20C084A50040D61E /* MVPTest.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DE41A8CE20C084A50040D61E /* MVPTest.xcdatamodel */,
-			);
-			currentVersion = DE41A8CE20C084A50040D61E /* MVPTest.xcdatamodel */;
-			path = MVPTest.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = DE41A8BB20C084A50040D61E /* Project object */;
 }
