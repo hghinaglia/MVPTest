@@ -16,6 +16,7 @@ class UserListViewMock: UserListViewContract {
     var users: [UserListModel] = []
     var error: Error?
     var detailUser: User?
+    var showEmptyCalled = false
 
     func startLoadingAnimation() {
         startLoadingAnimationCalled = true
@@ -25,12 +26,16 @@ class UserListViewMock: UserListViewContract {
         stopLoadingAnimationCalled = true
     }
 
-    func didFail(error: Error) {
+    func showUserList(users: [UserListModel]) {
+        self.users = users
+    }
+
+    func showError(error: Error) {
         self.error = error
     }
 
-    func didLoad(users: [UserListModel]) {
-        self.users = users
+    func showEmpty() {
+        showEmptyCalled = true
     }
 
     func showUserDetails(user: User) {

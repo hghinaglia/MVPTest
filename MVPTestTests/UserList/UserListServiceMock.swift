@@ -9,7 +9,7 @@
 import Foundation
 @testable import MVPTest
 
-class UserListServiceSuccessMock: UserDataSource {
+class UserListServiceSuccessMock: UserDataManager {
 
     func fetchUsers(onSuccess successHandler: @escaping ([User]) -> (),
                     onFailure failureHandler: @escaping (Error) -> ()) {
@@ -24,7 +24,17 @@ class UserListServiceSuccessMock: UserDataSource {
 
 }
 
-class UserListServiceFailureMock: UserDataSource {
+class UserListServiceEmptyMock: UserDataManager {
+
+    func fetchUsers(onSuccess successHandler: @escaping ([User]) -> (),
+                    onFailure failureHandler: @escaping (Error) -> ()) {
+
+        successHandler([])
+    }
+
+}
+
+class UserListServiceFailureMock: UserDataManager {
     enum MockError: Error {
         case error
     }

@@ -9,10 +9,10 @@
 import UIKit
 
 protocol UserListPresenterContract: class {    
-    init(service: UserDataSource)
+    init(service: UserDataManager)
     func attachView(view: UserListViewContract)
     func detachView()
-    func loadUsers()
+    func viewIsReady()
     func userDetails(userId: Int)
 }
 
@@ -47,7 +47,7 @@ class UserListViewController: UIViewController {
         self.activityIndicator = activityIndicator
 
         presenter.attachView(view: self)
-        presenter.loadUsers()
+        presenter.viewIsReady()
     }
 
     override func viewDidLayoutSubviews() {
@@ -70,12 +70,16 @@ extension UserListViewController: UserListViewContract {
         tableView.isHidden = false
     }
 
-    func didLoad(users: [UserListModel]) {
+    func showUserList(users: [UserListModel]) {
         self.users = users
         tableView.reloadData()
     }
 
-    func didFail(error: Error) {
+    func showEmpty() {
+        // TOD: Show empty view
+    }
+
+    func showError(error: Error) {
         let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)

@@ -11,18 +11,29 @@ import XCTest
 
 class UserListTests: XCTestCase {
 
+    func testUserListView_whenViewIsReady_shouldPerformRequestAndCallShowAndStopLoadingAnimation() {
+        let viewMock = UserListViewMock()
+        let serviceMock = UserListServiceSuccessMock()
+
+        let presenter = UserListPresenter(service: serviceMock)
+        presenter.attachView(view: viewMock)
+
+        presenter.viewIsReady()
+
+        XCTAssertTrue(viewMock.startLoadingAnimationCalled)
+        XCTAssertTrue(viewMock.stopLoadingAnimationCalled)
+    }
+
     func testUserListView_whenServiceSucceeds_shouldSetUsers() {
         let viewMock = UserListViewMock()
         let serviceMock = UserListServiceSuccessMock()
 
         let presenter = UserListPresenter(service: serviceMock)
         presenter.attachView(view: viewMock)
-        presenter.loadUsers()
 
-        XCTAssertTrue(viewMock.startLoadingAnimationCalled)
-        XCTAssertTrue(viewMock.stopLoadingAnimationCalled)
-        XCTAssertFalse(viewMock.users.isEmpty)        
-        XCTAssertNil(viewMock.error)
+        presenter.viewIsReady()
+
+        XCTAssertFalse(viewMock.users.isEmpty)
     }
 
     func testUserListView_whenGettingUserDetails_shouldReturnUserDetails() {
@@ -30,7 +41,8 @@ class UserListTests: XCTestCase {
         let serviceMock = UserListServiceSuccessMock()
         let presenter = UserListPresenter(service: serviceMock)
         presenter.attachView(view: viewMock)
-        presenter.loadUsers()
+
+        presenter.viewIsReady()
 
         let user = viewMock.users[0]
         presenter.userDetails(userId: user.id)
@@ -39,16 +51,25 @@ class UserListTests: XCTestCase {
         XCTAssertTrue(viewMock.detailUser!.id == user.id)
     }
 
+    func testUserListView_whenServiceSucceedAndIsEmpty_shouldShowEmptyState() {
+        let viewMock = UserListViewMock()
+        let serviceMock = UserListServiceEmptyMock()
+        let presenter = UserListPresenter(service: serviceMock)
+        presenter.attachView(view: viewMock)
+
+        presenter.viewIsReady()
+
+        XCTAssertTrue(viewMock.showEmptyCalled)
+    }
+
     func testUserListView_whenServiceFails_shouldHandleError() {
         let viewMock = UserListViewMock()
         let serviceMock = UserListServiceFailureMock()
         let presenter = UserListPresenter(service: serviceMock)
         presenter.attachView(view: viewMock)
-        presenter.loadUsers()
 
-        XCTAssertTrue(viewMock.startLoadingAnimationCalled)
-        XCTAssertTrue(viewMock.stopLoadingAnimationCalled)
-        XCTAssertTrue(viewMock.users.isEmpty)
+        presenter.viewIsReady()
+     
         XCTAssertNotNil(viewMock.error)
     }
     

@@ -6,12 +6,12 @@
 //  Copyright © 2018 HG. All rights reserved.
 //
 
-protocol UserDataSource {
+protocol UserDataManager {
     func fetchUsers(onSuccess successHandler: @escaping (_ users: [User]) -> (),
                     onFailure failureHandler: @escaping (_ error: Error) -> ())
 }
 
-class UserListService: UserDataSource {
+class UserListService: UserDataManager {
 
     func fetchUsers(onSuccess successHandler: @escaping (_ users: [User]) -> (),
                     onFailure failureHandler: @escaping (_ error: Error) -> ()) {

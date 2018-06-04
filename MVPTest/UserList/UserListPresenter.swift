@@ -7,22 +7,22 @@
 //
 
 protocol UserListViewContract: class {
-
     func startLoadingAnimation()
     func stopLoadingAnimation()
-    func didLoad(users: [UserListModel])
-    func didFail(error: Error)
+    func showUserList(users: [UserListModel])
+    func showEmpty()
+    func showError(error: Error)
     func showUserDetails(user: User)
 }
 
 class UserListPresenter: UserListPresenterContract {
 
-    let service: UserDataSource
+    let service: UserDataManager
 
     private weak var userListView: UserListViewContract?
     private var users: [User] = []
 
-    required init(service: UserDataSource) {
+    required init(service: UserDataManager) {
         self.service = service
     }
 
@@ -39,18 +39,26 @@ class UserListPresenter: UserListPresenterContract {
         userListView?.showUserDetails(user: user)
     }
 
-    func loadUsers() {
+    func viewIsReady() {
+        loadUsers()
+    }
+
+    private func loadUsers() {
         userListView?.startLoadingAnimation()
         service.fetchUsers(onSuccess: { [weak self] (users: [User]) in
             guard let strongSelf = self else { return }
             strongSelf.userListView?.stopLoadingAnimation()
             strongSelf.users = users
             let userListItems: [UserListModel] = users.map({ UserListModel(id: $0.id, name: $0.name) })
-            strongSelf.userListView?.didLoad(users: userListItems)
+            if userListItems.isEmpty {
+                strongSelf.userListView?.showEmpty()
+            } else {
+                strongSelf.userListView?.showUserList(users: userListItems)
+            }
         }, onFailure: { [weak self] (error: Error) in
             guard let strongSelf = self else { return }
             strongSelf.userListView?.stopLoadingAnimation()
-            strongSelf.userListView?.didFail(error: error)
+            strongSelf.userListView?.showError(error: error)
         })
     }
 
