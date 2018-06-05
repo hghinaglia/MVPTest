@@ -10,35 +10,30 @@ import Foundation
 @testable import MVPTest
 
 class UserListViewMock: UserListViewContract {
+    lazy var users: [UserListModel] = []
 
-    var startLoadingAnimationCalled = false
-    var stopLoadingAnimationCalled = false
-    var users: [UserListModel] = []
-    var error: Error?
-    var detailUser: User?
-    var showEmptyCalled = false
+    var state: State? {
+        didSet {
+            update()
+        }
+    }
+    var userDetailsUserId: Int?
 
-    func startLoadingAnimation() {
-        startLoadingAnimationCalled = true
+    func showUserDetails(userId: Int) {
+        self.userDetailsUserId = userId
     }
 
-    func stopLoadingAnimation() {
-        stopLoadingAnimationCalled = true
-    }
+    func update() {
 
-    func showUserList(users: [UserListModel]) {
-        self.users = users
-    }
+        guard let state = state else { return }
 
-    func showError(error: Error) {
-        self.error = error
-    }
+        switch state {
+        case .content(let data):
+            guard let users = data as? [UserListModel] else { return }
+            self.users = users
+        default:
+            return
+        }
 
-    func showEmpty() {
-        showEmptyCalled = true
-    }
-
-    func showUserDetails(user: User) {
-        self.detailUser = user
     }
 }

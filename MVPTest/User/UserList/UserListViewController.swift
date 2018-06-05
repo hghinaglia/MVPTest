@@ -8,20 +8,27 @@
 
 import UIKit
 
-protocol UserListPresenterContract: class {    
-    init(service: UserDataManager)
-    func attachView(view: UserListViewContract)
-    func detachView()
-    func viewIsReady()
-    func userDetails(userId: Int)
+protocol UserListViewContract: class {
+
+    var state: State? { get set }
+    var users: [UserListModel] { get set }
+
+    func showUserDetails(userId: Int)
 }
 
 class UserListViewController: UIViewController {
 
-    private let presenter: UserListPresenterContract = UserListPresenter(service: UserListService())    
+    var state: State? {
+        didSet {
+            update()
+        }
+    }
+
+    private let presenter: UserListPresenterContract = UserListPresenter(dataManager: UserDataManager.shared)
 
     weak var tableView: UITableView!
     weak var activityIndicator: UIActivityIndicatorView!
+    weak var emptyView: UIView!
 
     lazy var users: [UserListModel] = []
 
@@ -41,6 +48,11 @@ class UserListViewController: UIViewController {
         self.tableView = tableView
         view.addSubview(tableView)
 
+        let emptyView = UIView()
+        emptyView.backgroundColor = .red
+        view.addSubview(emptyView)
+        self.emptyView = emptyView
+
         let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
@@ -53,6 +65,39 @@ class UserListViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
+        emptyView.frame = view.bounds
+    }
+
+    private func update() {
+        guard let state = state else { return }
+
+        switch state {
+        case .initial:
+            emptyView.isHidden = true
+            tableView.isHidden = true
+        case .loading:
+            activityIndicator.startAnimating()
+            tableView.isHidden = true
+            emptyView.isHidden = true
+        case .content(let data):
+            guard let users = data as? [UserListModel] else { return }
+            self.users = users
+            tableView.reloadData()
+            activityIndicator.stopAnimating()
+            tableView.isHidden = false
+            emptyView.isHidden = true
+        case .empty:
+            activityIndicator.stopAnimating()
+            tableView.isHidden = true
+            emptyView.isHidden = false
+        case .error(let error):
+            activityIndicator.stopAnimating()
+            emptyView.isHidden = true
+            tableView.isHidden = true
+            let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
 
 }
@@ -60,33 +105,8 @@ class UserListViewController: UIViewController {
 // MARK: - UserListViewContract
 extension UserListViewController: UserListViewContract {
 
-    func startLoadingAnimation() {
-        activityIndicator.startAnimating()
-        tableView.isHidden = true
-    }
-
-    func stopLoadingAnimation() {
-        activityIndicator.stopAnimating()
-        tableView.isHidden = false
-    }
-
-    func showUserList(users: [UserListModel]) {
-        self.users = users
-        tableView.reloadData()
-    }
-
-    func showEmpty() {
-        // TOD: Show empty view
-    }
-
-    func showError(error: Error) {
-        let alert = UIAlertController(title: "ERROR", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-
-    func showUserDetails(user: User) {
-        show(UserDetailsViewController(user: user), sender: nil)
+    func showUserDetails(userId: Int) {
+        show(UserDetailsViewController(userId: userId), sender: nil)
     }
 
 }

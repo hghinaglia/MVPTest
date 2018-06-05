@@ -8,14 +8,22 @@
 
 import UIKit
 
+protocol UserDetailsViewContract: class {
+
+    var userId: Int { get set }
+    func configureView(with user: User)
+    func showEmpty()
+}
+
 class UserDetailsViewController: UIViewController {
 
-    let user: User
+    var userId: Int
+    let presenter: UserDetailsPresenterContract = UserDetailsPresenter(dataManager: UserDataManager.shared)
 
     private weak var textView: UITextView!
     
-    init(user: User) {
-        self.user = user
+    init(userId: Int) {
+        self.userId = userId
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,7 +37,6 @@ class UserDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = user.name
         view.backgroundColor = .white
 
         let textView = UITextView()
@@ -39,7 +46,8 @@ class UserDetailsViewController: UIViewController {
         view.addSubview(textView)
         self.textView = textView
 
-        configureDetails()
+        presenter.attachView(view: self)
+        presenter.viewIsReady()
     }
 
     override func viewDidLayoutSubviews() {
@@ -47,12 +55,16 @@ class UserDetailsViewController: UIViewController {
         textView.frame = view.bounds
     }
 
-    // MARK: - Helper
+}
 
-    private func configureDetails() {
+
+// MARK : - UserDetailsViewContract
+extension UserDetailsViewController: UserDetailsViewContract {
+
+    func configureView(with user: User) {
+        title = user.name
 
         var details: String = ""
-
         details += "ID: \(user.id)\n"
         details += "NAME: \(user.name)\n"
         details += "USERNAME: \(user.username!)\n"
@@ -60,8 +72,11 @@ class UserDetailsViewController: UIViewController {
         details += "PHONE: \(user.phone!)\n"
         details += "WEBSITE: \(user.website!)\n"
         details += "COMPANY: \(user.company!.name)"
-
         textView.text = details
+    }
+
+    func showEmpty() {
+        textView.text = "NO USER DATA AVAILABLE"
     }
 
 }

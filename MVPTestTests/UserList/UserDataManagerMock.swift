@@ -1,5 +1,5 @@
 //
-//  UserListServiceMock.swift
+//  UserDataManagerMock.swift
 //  MVPTestTests
 //
 //  Created by Hector Ghinaglia on 5/31/18.
@@ -9,7 +9,12 @@
 import Foundation
 @testable import MVPTest
 
-class UserListServiceSuccessMock: UserDataManager {
+class UserDataManagerSuccessMock: UserDataManagerContract {
+    private(set) var users: [User] = []
+
+    func userDetails(for id: Int) -> User? {
+        return nil
+    }
 
     func fetchUsers(onSuccess successHandler: @escaping ([User]) -> (),
                     onFailure failureHandler: @escaping (Error) -> ()) {
@@ -19,24 +24,39 @@ class UserListServiceSuccessMock: UserDataManager {
         let user4 = User(id: 4, name: "mock user 4", username: nil, email: nil, phone: nil, website: nil, address: nil, company: nil)
 
         let mockUsers = [user1, user2, user3, user4]
+        self.users = mockUsers
         successHandler(mockUsers)
     }
 
 }
 
-class UserListServiceEmptyMock: UserDataManager {
+class UserDataManagerEmptyMock: UserDataManagerContract {
+
+    private(set) var users: [User] = []
+
+    func userDetails(for id: Int) -> User? {
+        return nil
+    }
 
     func fetchUsers(onSuccess successHandler: @escaping ([User]) -> (),
                     onFailure failureHandler: @escaping (Error) -> ()) {
 
-        successHandler([])
+        let users: [User] = []
+        self.users = users
+        successHandler(users)
     }
 
 }
 
-class UserListServiceFailureMock: UserDataManager {
+class UserDataManagerFailureMock: UserDataManagerContract {
     enum MockError: Error {
         case error
+    }
+
+    private(set) var users: [User] = []
+
+    func userDetails(for id: Int) -> User? {
+        return nil
     }
 
     func fetchUsers(onSuccess successHandler: @escaping ([User]) -> (),

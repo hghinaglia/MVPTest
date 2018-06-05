@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE26A05420C5F00100331433 /* UserDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE26A05320C5F00100331433 /* UserDetailsPresenter.swift */; };
+		DE30359E20C5DA84007BED0C /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE30359D20C5DA84007BED0C /* State.swift */; };
 		DE41A8C720C084A50040D61E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8C620C084A50040D61E /* AppDelegate.swift */; };
 		DE41A8C920C084A50040D61E /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41A8C820C084A50040D61E /* UserListViewController.swift */; };
 		DE41A8D120C084A90040D61E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE41A8D020C084A90040D61E /* Assets.xcassets */; };
@@ -19,9 +21,9 @@
 		DEE9346F20C0B087006AB1F8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9346E20C0B087006AB1F8 /* Location.swift */; };
 		DEE9347120C0B0A5006AB1F8 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347020C0B0A5006AB1F8 /* Company.swift */; };
 		DEE9347420C0B0D1006AB1F8 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */; };
-		DEE9347A20C0BF4A006AB1F8 /* UserListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347920C0BF4A006AB1F8 /* UserListService.swift */; };
+		DEE9347A20C0BF4A006AB1F8 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347920C0BF4A006AB1F8 /* UserDataManager.swift */; };
 		DEE9347D20C0C3DC006AB1F8 /* UserListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */; };
-		DEE9347F20C0C408006AB1F8 /* UserListServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */; };
+		DEE9347F20C0C408006AB1F8 /* UserDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9347E20C0C408006AB1F8 /* UserDataManagerMock.swift */; };
 		DEE9348620C1E0DC006AB1F8 /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE26A05320C5F00100331433 /* UserDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsPresenter.swift; sourceTree = "<group>"; };
+		DE30359D20C5DA84007BED0C /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		DE41A8C320C084A50040D61E /* MVPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE41A8C620C084A50040D61E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE41A8C820C084A50040D61E /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -52,9 +56,9 @@
 		DEE9346E20C0B087006AB1F8 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DEE9347020C0B0A5006AB1F8 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
-		DEE9347920C0BF4A006AB1F8 /* UserListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListService.swift; sourceTree = "<group>"; };
+		DEE9347920C0BF4A006AB1F8 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewMock.swift; sourceTree = "<group>"; };
-		DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListServiceMock.swift; sourceTree = "<group>"; };
+		DEE9347E20C0C408006AB1F8 /* UserDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManagerMock.swift; sourceTree = "<group>"; };
 		DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE26A05520C5F14100331433 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				DEE9347920C0BF4A006AB1F8 /* UserDataManager.swift */,
+				DEE9346920C0B031006AB1F8 /* UserList */,
+				DEE9347220C0B0BD006AB1F8 /* UserDetails */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		DE41A8BA20C084A50040D61E = {
 			isa = PBXGroup;
 			children = (
@@ -100,8 +114,7 @@
 				DEE9346820C0B017006AB1F8 /* Application */,
 				DEE9346B20C0B043006AB1F8 /* Base */,
 				DEE9346A20C0B03C006AB1F8 /* Models */,
-				DEE9346920C0B031006AB1F8 /* UserList */,
-				DEE9347220C0B0BD006AB1F8 /* UserDetails */,
+				DE26A05520C5F14100331433 /* User */,
 			);
 			path = MVPTest;
 			sourceTree = "<group>";
@@ -132,7 +145,6 @@
 				DEE9348520C1E0DC006AB1F8 /* UserListModel.swift */,
 				DE41A8F120C094EB0040D61E /* UserListPresenter.swift */,
 				DE41A8C820C084A50040D61E /* UserListViewController.swift */,
-				DEE9347920C0BF4A006AB1F8 /* UserListService.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -152,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DE41A8EF20C0911F0040D61E /* APIManager.swift */,
+				DE30359D20C5DA84007BED0C /* State.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				DEE9347320C0B0D1006AB1F8 /* UserDetailsViewController.swift */,
+				DE26A05320C5F00100331433 /* UserDetailsPresenter.swift */,
 			);
 			path = UserDetails;
 			sourceTree = "<group>";
@@ -169,7 +183,7 @@
 			children = (
 				DE41A8DE20C084A90040D61E /* UserListTests.swift */,
 				DEE9347C20C0C3DC006AB1F8 /* UserListViewMock.swift */,
-				DEE9347E20C0C408006AB1F8 /* UserListServiceMock.swift */,
+				DEE9347E20C0C408006AB1F8 /* UserDataManagerMock.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -277,14 +291,16 @@
 				DEE9346D20C0B076006AB1F8 /* Address.swift in Sources */,
 				DE41A8C920C084A50040D61E /* UserListViewController.swift in Sources */,
 				DEE9347420C0B0D1006AB1F8 /* UserDetailsViewController.swift in Sources */,
-				DEE9347A20C0BF4A006AB1F8 /* UserListService.swift in Sources */,
+				DEE9347A20C0BF4A006AB1F8 /* UserDataManager.swift in Sources */,
 				DEE9346F20C0B087006AB1F8 /* Location.swift in Sources */,
+				DE26A05420C5F00100331433 /* UserDetailsPresenter.swift in Sources */,
 				DE41A8EE20C08F040040D61E /* User.swift in Sources */,
 				DEE9348620C1E0DC006AB1F8 /* UserListModel.swift in Sources */,
 				DEE9347120C0B0A5006AB1F8 /* Company.swift in Sources */,
 				DE41A8F220C094EB0040D61E /* UserListPresenter.swift in Sources */,
 				DE41A8C720C084A50040D61E /* AppDelegate.swift in Sources */,
 				DE41A8F020C0911F0040D61E /* APIManager.swift in Sources */,
+				DE30359E20C5DA84007BED0C /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEE9347F20C0C408006AB1F8 /* UserListServiceMock.swift in Sources */,
+				DEE9347F20C0C408006AB1F8 /* UserDataManagerMock.swift in Sources */,
 				DE41A8DF20C084A90040D61E /* UserListTests.swift in Sources */,
 				DEE9347D20C0C3DC006AB1F8 /* UserListViewMock.swift in Sources */,
 			);
